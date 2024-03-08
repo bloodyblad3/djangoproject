@@ -1,0 +1,42 @@
+{% extends 'seminar2_app/index.html' %}
+
+{% block title %} Заказы {% endblock %}
+
+{% block content %}
+<h1>Заказы {{ client.name }}</h1>
+
+<h2>Week</h2>
+{% for order in last_week_orders %}
+    <p>Order id: {{ order.id }}</p>
+    <ul>
+        {% for product in order.products.all %}
+            <li>Product: {{ product.name }}</li>
+            <li>Price: {{ product.price }}</li>
+        {% endfor %}
+    </ul>
+    <p>Total sum: {{ order.order_sum }}</p>
+{% endfor %}
+<h2>Month</h2>
+{% for order in last_month_orders %}
+    <p>Order id: {{ order.id }}</p>
+    <ul>
+        {% for product in order.products.all %}
+            <li>Product: {{ product.name }}</li>
+            <li>Price: {{ product.price }}</li>
+        {% endfor %}
+    </ul>
+    <p>Total sum: {{ order.order_sum }}</p>
+{% endfor %}
+
+<h2>Year</h2>
+{% for order in last_year_orders %}
+    <p>Order id: {{ order.id }}</p>
+    <ul>
+        {% for product in order.products.all %}
+            <li>Product: {{ product.name }}</li>
+            <li>Price: {{ product.price }}</li>
+        {% endfor %}
+    </ul>
+    <p>Total sum: {{ order.order_sum }}</p>
+{% endfor %}
+{% endblock %}
